@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Glasses IDs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-glasses"></i>
+                <h1>Glasses ID Manager</h1>
+            </div>
+            <p class="subtitle">Efficiently manage and track your glasses inventory</p>
+        </header>
+
+        <div class="content">
+            <div class="email-section">
+                <h2>Enter Your Email</h2>
+                <p class="description">Please enter your email address to begin managing your glasses inventory.</p>
+                <div class="input-container">
+                    <input type="email" id="emailInput" placeholder="Enter your email address">
+                    <button id="emailButton">Continue</button>
+                </div>
+            </div>
+
+            <div class="glasses-section" style="display: none;">
+                <div class="input-section">
+                    <h2>Add New Glasses ID</h2>
+                    <p class="description">Enter the unique ID of your glasses to add them to the inventory list.</p>
+                    <div class="input-container">
+                        <input type="text" id="glassesId" placeholder="Enter glasses ID">
+                        <button id="addButton">Add ID</button>
+                    </div>
+                </div>
+
+                <div class="list-section">
+                    <h2>Current Inventory</h2>
+                    <p class="description">Below are the glasses IDs currently in your inventory.</p>
+                    <div class="ids-list" id="idsList"></div>
+                </div>
+
+                <div class="submit-container">
+                    <button id="submitButton" disabled>Submit IDs</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

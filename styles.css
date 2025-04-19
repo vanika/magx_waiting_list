@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Cereal:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cereal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    color: #222222;
+}
+
+.container {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 680px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: #00a699;
+}
+
+h1 {
+    color: #222222;
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: #717171;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.input-section, .list-section {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+h2 {
+    color: #222222;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.description {
+    color: #717171;
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+}
+
+.input-container {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+}
+
+input {
+    flex: 1;
+    padding: 1rem 1.25rem;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+    background-color: white;
+}
+
+input:focus {
+    border-color: #00a699;
+    box-shadow: 0 0 0 2px rgba(0, 166, 153, 0.1);
+}
+
+input::placeholder {
+    color: #717171;
+}
+
+button {
+    padding: 1rem 1.5rem;
+    background-color: #222222;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: #000000;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    background-color: #dddddd;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#addButton {
+    background-color: #222222;
+}
+
+#addButton:hover {
+    background-color: #000000;
+}
+
+#submitButton:not(:disabled) {
+    background-color: #00a699;
+}
+
+#submitButton:not(:disabled):hover {
+    background-color: #008489;
+}
+
+.ids-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.id-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background-color: white;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    gap: 0.5rem;
+    border: 1px solid #e9ecef;
+}
+
+.id-item:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.id-item span {
+    flex: 1;
+    font-weight: 500;
+}
+
+.id-item .checkmark {
+    color: #00a699;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 0.25rem;
+}
+
+.id-item .delete-btn {
+    color: #ff385c;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+}
+
+.id-item:hover .delete-btn {
+    opacity: 1;
+}
+
+.id-item .delete-btn:hover {
+    transform: scale(1.1);
+}
+
+.submit-container {
+    text-align: center;
+}
+
+.submit-container button {
+    width: 100%;
+    max-width: 240px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 1.5rem;
+    }
+    
+    .container {
+        padding: 2rem;
+    }
+    
+    .logo {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .input-container {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+    }
+} 
