@@ -109,6 +109,22 @@ function submitIds() {
     });
 }
 
+// Function to handle barcode scanner input
+function handleBarcodeInput(event) {
+    // Only process if we're in the glasses section
+    if (glassesSection.style.display === 'none') {
+        return;
+    }
+
+    // If Enter is pressed, add the current input value
+    if (event.key === 'Enter') {
+        const id = glassesIdInput.value.trim();
+        if (id) {
+            addGlassesId();
+        }
+    }
+}
+
 emailButton.addEventListener('click', handleEmailSubmit);
 emailInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
@@ -117,9 +133,8 @@ emailInput.addEventListener('keypress', (e) => {
 });
 
 addButton.addEventListener('click', addGlassesId);
-glassesIdInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        addGlassesId();
-    }
-});
-submitButton.addEventListener('click', submitIds); 
+glassesIdInput.addEventListener('keypress', handleBarcodeInput);
+submitButton.addEventListener('click', submitIds);
+
+// Remove the old barcode event listener
+document.removeEventListener('keydown', handleBarcodeInput); 
