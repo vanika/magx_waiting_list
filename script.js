@@ -97,50 +97,22 @@ function submitIds() {
     result.classList.remove("text-green-500", "text-red-500");
     result.classList.add("text-gray-500");
 
-    const formData = {
-        access_key: "1324ef6d-2a8b-4173-b9d2-5e7544d86d58",
-        email: userEmail,
-        name: nameInput.value.trim(),
-        piva: pivaInput.value.trim(),
-        phone: phoneInput.value.trim(),
-        glasses_ids: idsArray
-    };
+    const formData = new URLSearchParams();
+formData.append("email", userEmail);
+formData.append("name", nameInput.value.trim());
+formData.append("piva", pivaInput.value.trim());
+formData.append("phone", phoneInput.value.trim());
+formData.append("glasses_ids", Array.from(glassesIds).join(","));
 
-    fetch("https://api.web3forms.com/submit", {
+    fetch("https://script.google.com/macros/s/AKfycbxPWTTxWkBldw_ebElUymQinsTeJl1V1o17LNIpM-KJMUhTU_LX3XuU5DOq-qRs494N/exec", {
         method: "POST",
+        mode: "no-cors",
         headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
+            "Content-Type": "application/x-www-form-urlencoded",
+           // Accept: "application/json"
         },
-        body: JSON.stringify(formData)
+        body: formData
     })
-    .then(async (response) => {
-        let json = await response.json();
-        if (response.status == 200) {
-            result.innerHTML = json.message;
-            result.classList.remove("text-gray-500");
-            result.classList.add("text-green-500");
-            glassesIds.clear();
-            idsList.innerHTML = '';
-            updateSubmitButton();
-        } else {
-            console.log(response);
-            result.innerHTML = json.message;
-            result.classList.remove("text-gray-500");
-            result.classList.add("text-red-500");
-        }
-    })
-    .catch((error) => {
-        console.log(error);
-        result.innerHTML = "Errore nell\'invio dei codici. Per favore riprova.";
-        result.classList.remove("text-gray-500");
-        result.classList.add("text-red-500");
-    })
-    .then(function () {
-        setTimeout(() => {
-            result.style.display = "none";
-        }, 5000);
-    });
 }
 
 // Function to handle barcode scanner input
