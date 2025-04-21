@@ -19,10 +19,12 @@
 
         <div class="content">
             <div class="email-section">
-                <h2>Inserisci il tuo indirizzo email</h2>
-                <!-- <p class="description">Per far partire la fase di prova, inserisci il tuo indirizzo email</p> -->
+                <h2>Inserisci i tuoi dati</h2>
                 <div class="input-container">
-                    <input type="email" id="emailInput" placeholder="Inserisci il tuo indirizzo email">
+                    <input type="text" id="nameInput" placeholder="Nome e Cognome" required>
+                    <input type="email" id="emailInput" placeholder="Inserisci il tuo indirizzo email" required>
+                    <input type="text" id="pivaInput" placeholder="Partita IVA" required>
+                    <input type="tel" id="phoneInput" placeholder="Numero di telefono" required>
                     <button id="emailButton">Continua</button>
                 </div>
             </div>
@@ -42,6 +44,8 @@
                     <p class="description">Di seguito sono elencati i codici occhiale attualmente presenti nel tuo inventario.</p>
                     <div class="ids-list" id="idsList"></div>
                 </div>
+
+                <div id="result" style="display: none; margin: 20px 0; text-align: center;"></div>
 
                 <div class="submit-container">
                     <button id="submitButton" disabled>Invia codici</button>
