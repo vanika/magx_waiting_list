@@ -20,12 +20,12 @@ function handleEmailSubmit() {
     const email = emailInput.value.trim();
     
     if (!email) {
-        alert('Please enter your email address');
+        alert('Per favore inserisci il tuo indirizzo email');
         return;
     }
 
     if (!validateEmail(email)) {
-        alert('Please enter a valid email address');
+        alert('Per favore inserisci un indirizzo email valido');
         return;
     }
 
@@ -66,12 +66,12 @@ function addGlassesId() {
     }
 
     if (glassesIds.size >= MAX_IDS) {
-        alert(`Maximum of ${MAX_IDS} IDs reached`);
+        alert(`Hai raggiunto il massimo di ${MAX_IDS} occhiali. Invia gli occhiali che hai già aggiunto e poi puoi aggiungerne altri.`);
         return;
     }
 
     if (glassesIds.has(id)) {
-        alert('This ID has already been added');
+        alert('Questo occhiale è già stato aggiunto');
         return;
     }
 
@@ -98,14 +98,14 @@ function submitIds() {
     })
     .then(response => response.json())
     .then(data => {
-        alert('IDs submitted successfully!');
+        alert('Occhiali inviati con successo!');
         glassesIds.clear();
         idsList.innerHTML = '';
         updateSubmitButton();
     })
     .catch(error => {
-        alert('Error submitting IDs. Please try again.');
-        console.error('Error:', error);
+        alert('Errore nell\'invio dei codici. Per favore riprova.');
+        console.error('Errore:', error);
     });
 }
 
