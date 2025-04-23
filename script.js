@@ -89,7 +89,7 @@ function addGlassesId() {
 
 function submitIds() {
     const idsArray = Array.from(glassesIds);
-    console.log('Submitting IDs:', idsArray, 'for email:', userEmail);
+    console.log('Submitting IDs:', idsArray, 'for email:', userEmail, 'for name:', nameInput.value.trim(), 'for piva:', pivaInput.value.trim(), 'for phone:', phoneInput.value.trim());
     
     const result = document.getElementById('result');
     result.style.display = 'block';
@@ -98,11 +98,11 @@ function submitIds() {
     result.classList.add("text-gray-500");
 
     const formData = new URLSearchParams();
-formData.append("email", userEmail);
-formData.append("name", nameInput.value.trim());
-formData.append("piva", pivaInput.value.trim());
-formData.append("phone", phoneInput.value.trim());
-formData.append("glasses_ids", Array.from(glassesIds).join(","));
+    formData.append("email", userEmail);
+    formData.append("name", nameInput.value.trim());
+    formData.append("piva", pivaInput.value.trim());
+    formData.append("phone", phoneInput.value.trim());
+    formData.append("glasses_ids", Array.from(glassesIds).join(","));
 
     fetch("https://script.google.com/macros/s/AKfycbxPWTTxWkBldw_ebElUymQinsTeJl1V1o17LNIpM-KJMUhTU_LX3XuU5DOq-qRs494N/exec", {
         method: "POST",
@@ -113,6 +113,34 @@ formData.append("glasses_ids", Array.from(glassesIds).join(","));
         },
         body: formData
     })
+    .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+            console.log(json);
+            result.innerHTML = json.message;
+            result.classList.remove("text-gray-500");
+            result.classList.add("text-green-500");
+            glassesIds.clear();
+            idsList.innerHTML = '';
+            updateSubmitButton();
+        } else {
+            console.log(response);
+            result.innerHTML = json.message;
+            result.classList.remove("text-gray-500");
+            result.classList.add("text-red-500");
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+        result.innerHTML = "Errore nell\'invio dei codici. Per favore riprova.";
+        result.classList.remove("text-gray-500");
+        result.classList.add("text-red-500");
+    })
+    .then(function () {
+        setTimeout(() => {
+            result.style.display = "none";
+        }, 5000);
+    });
 }
 
 // Function to handle barcode scanner input
