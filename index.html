@@ -3,56 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carica i tuoi occhiali su Magx</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Benvenuti su Magx</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="magx_homepage.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="container">
             <div class="logo">
-                <i class="fas fa-glasses"></i>
-                <h1>Carica i tuoi occhiali e inizia a vendere!</h1>
+                <a href="#hero">magx</a>
             </div>
-            <p class="subtitle">Benvenuto nella fase di prova di Magx. Scannerizza i tuoi occhiali con il lettore di codice a barre o inserisci il codice manualmente</p>
-        </header>
-
-        <div class="content">
-            <div class="email-section">
-                <h2>Inserisci i tuoi dati</h2>
-                <div class="input-container">
-                    <input type="text" id="nameInput" placeholder="Nome e Cognome" required>
-                    <input type="email" id="emailInput" placeholder="Inserisci il tuo indirizzo email" required>
-                    <input type="text" id="pivaInput" placeholder="Partita IVA" required>
-                    <input type="tel" id="phoneInput" placeholder="Numero di telefono" required>
-                    <button id="emailButton">Continua</button>
-                </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#how-it-works">Come funziona<span class="arrow">↓</span></a>
+                    </li>
+                   <!-- <li class="dropdown">
+                        <a href="pricing.html">Prezzo<span class="arrow">↓</span></a>
+                    </li> -->
+                    <li class="dropdown">
+                        <a href="#faq">Domande frequenti<span class="arrow">↓</span></a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="hamburger-icon">☰</span>
+            </button>
+            <div class="auth-buttons">
+                <a href="https://docs.google.com/forms/d/1IlF40M767_LrRs7j3HeDGSl58CgH4xV7-MyyTv3xBlg/viewform?edit_requested=true" class="btn btn-secondary">Registrati</a>
+                <a href="https://docs.google.com/forms/d/1IlF40M767_LrRs7j3HeDGSl58CgH4xV7-MyyTv3xBlg/viewform?edit_requested=true" class="btn btn-primary">Prova ora (da 49€/mese)</a>
             </div>
+        </div>
+    </header>
 
-            <div class="glasses-section" style="display: none;">
-                <div class="input-section">
-                    <h2>Aggiungi un nuovo codice occhiale</h2>
-                    <p class="description">Scannerizza o inserisci il codice dell'occhiale che vuoi vendere</p>
-                    <div class="input-container">
-                        <input type="text" id="glassesId" placeholder="Inserisci il codice dell'occhiale">
-                        <button id="addButton">Aggiungi occhiale</button>
-                    </div>
-                </div>
-
-                <div class="list-section">
-                    <h2>Inventario attuale</h2>
-                    <p class="description">Di seguito sono elencati i codici occhiale attualmente presenti nel tuo inventario.</p>
-                    <div class="ids-list" id="idsList"></div>
-                </div>
-
-                <div id="result" style="display: none; margin: 20px 0; text-align: center;"></div>
-
-                <div class="submit-container">
-                    <button id="submitButton" disabled>Invia codici</button>
-                </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-content">
+            <nav class="mobile-menu-nav">
+                <ul>
+                    <li><a href="#how-it-works">Come funziona</a></li>
+                    <li><a href="#faq">Domande frequenti</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-cta">
+                <a href="https://docs.google.com/forms/d/1IlF40M767_LrRs7j3HeDGSl58CgH4xV7-MyyTv3xBlg/viewform?edit_requested=true" class="btn btn-secondary btn-large">Registrati</a>
+                <a href="https://docs.google.com/forms/d/1IlF40M767_LrRs7j3HeDGSl58CgH4xV7-MyyTv3xBlg/viewform?edit_requested=true" class="btn btn-primary btn-large">Prova ora (49€)</a>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Promo Banner
+        <section class="promo-banner">
+            <div class="container">
+                <div class="promo-content">
+                    <span class="check-icon">✓</span>
+                    <p>Be a Founding Partner to Icon & save 60% (only 4 spots left, ends 5/9)</p>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Magx</h1>
+                    <p class="hero-subtitle">Il marketplace per ottici che vogliono vendere e scambiare occhiali in totale libertà.</p>
+                    <p class="pricing-info">Acquista solo quello che ti serve. Vendi i tuoi stock. Nessun vincolo.</p>
+                    <!-- <p class="guarantee">100% rimborso garantito, nessuna domanda.</p> -->
+                    <div class="cta-buttons">
+                        <a href="#how-it-works" class="btn btn-secondary btn-large">
+                            Scopri di piu'
+                        </a>
+                        <a href="https://docs.google.com/forms/d/1IlF40M767_LrRs7j3HeDGSl58CgH4xV7-MyyTv3xBlg/viewform?edit_requested=true" class="btn btn-primary btn-large">
+                           Prova ora (da 49€/mese)
+                        </a>
+                    </div>
+                    <div class="social-proof">
+                        <div class="proof-item">
+                            <span class="proof-icon">👓</span>
+                            <span>Tantissimi brands</span>
+                        </div>
+                        <div class="proof-item">
+                            <span class="proof-icon">💼</span>
+                            <span>Solo ottici fidati</span>
+                        </div>
+                        <div class="proof-item">
+                            <span class="proof-icon">🚧</span>
+                            <span>In arrivo</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Client Logos moved here -->
+                    <div class="client-logos">
+                        <div class="logo-grid">
+                            <div class="logo-item"><img src="occhiali_loghi/Prada-Logo.svg" alt="Prada" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Gucci_logo.svg" alt="Gucci" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Tom_Ford_Logo.svg" alt="Tom Ford" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Dior_Logo.svg" alt="Dior" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Versace_logo.svg" alt="Versace" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Fendi_logo.svg" alt="Fendi" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Off-White_Logo.svg" alt="Off White" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Ray-Ban_logo.svg" alt="Ray Ban" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Oakley_early_logo.svg" alt="Oakley" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Marni_logo.svg" alt="Marni" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Bulgari_logo.svg" alt="Bulgari" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Oliver_Peoples_logo.svg" alt="Oliver Peoples" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Balenciaga_Logo.svg" alt="Balenciaga" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Gast_logo.avif" alt="Gast" class="brand-logo"></div>
+                            <div class="logo-item"><img src="occhiali_loghi/Yves_Saint_Laurent_Logo.svg" alt="Yves Saint Laurent" class="brand-logo"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-images">
+                    <div class="ad-examples">
+                        <div class="ad-card main-ad-card">
+                            <div class="ad-content">
+                                <div class="ad-body">
+                                    <img src="big_ads_front.jpg" alt="Designer sunglasses" class="ad-image">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="small-ads">
+                            <div class="ad-card small-ad-card">
+                                <div class="ad-content">
+                                    <div class="ad-body">
+                                        <img src="small_ads_side1.jpg" alt="Fast delivery" class="ad-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ad-card small-ad-card">
+                                <div class="ad-content">
+                                    <div class="ad-body">
+                                        <img src="small_ads_side2.avif" alt="Guaranteed security" class="ad-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2>Un nuovo modo di gestire il tuo negozio di occhiali</h2>
+                <div class="steps-container">
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <div class="step-thumbnail">
+                                <img src="glasses_collections.jpg" alt="dashboard" class="step-image">
+                            </div>
+                            <div class="step-content">
+                                <h3>Accesso immediato a migliaia di prodotti</h3>
+                                <p>🔍 Trova l'occhiale che ti serve senza minimi d'acquisto</p>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-thumbnail">
+                                <img src="business_relationship.jpg" alt="buying" class="step-image">
+                            </div>
+                            <div class="step-content">
+                                <h3>Solo ottici selezionati</h3>
+                                <p>🤝 Scambia in sicurezza solo con professionisti verificati.</p>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-thumbnail">
+                                <img src="shipping.jpeg" alt="delivery" class="step-image">
+                            </div>
+                            <div class="step-content">
+                                <h3>Vendi i tuoi stock in eccesso</h3>
+                                <p>💰 Libera spazio e transforma l'invenduto in liquidità.</p>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-thumbnail">
+                                <img src="otticaAlPc.jpg" alt="registration" class="step-image">
+                            </div>
+                            <div class="step-content">
+                                <h3>Registrati e vendi in pochi minuti</h3>
+                                <p>✍️ Ti basta la partita IVA e uno scan per codici a barre per vendere e comprare in pochi minuti</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-image-container">
+                        <img src="product_preview.png" alt="demo" class="demo-image">
+                        <div class="demo-cta">
+                            <a href="https://docs.google.com/forms/d/1IlF40M767_LrRs7j3HeDGSl58CgH4xV7-MyyTv3xBlg/viewform?edit_requested=true" class="btn btn-outline btn-demo">
+                                <span class="play-icon">📞</span> Contattaci
+                            </a>
+                            <a href="https://docs.google.com/forms/d/1IlF40M767_LrRs7j3HeDGSl58CgH4xV7-MyyTv3xBlg/viewform?edit_requested=true" class="btn btn-outline btn-demo">
+                                <span class="read-icon">📄</span> Leggi la nostra pitch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>Cosa dicono di noi</h2>
+                <div class="testimonials-grid">
+                    <div class="tweet-card">
+                        <div class="tweet-header">
+                            <div class="tweet-author">
+                                <div class="author-avatar">
+                                    <img src="avatar1.png" alt="Alessia Lupini" class="avatar-img">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">
+                                        Alessia Lupini
+                                    </div>
+                                    <div class="author-handle">Centro Ottico Lupini</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tweet-content">
+                            <p>Abbiamo tanti occhiali invenduti che restavano fermi in magazzino, con Magx, 
+                            possiamo venderli rapidamente ad altri ottici ed in più quando ci serve un modello specifico per un cliente,
+                             lo troviamo subito senza dover fare ordini minimi alla casa madre. Un vero game changer! 
+                        </div>
+                    </div>
+                    <div class="tweet-card">
+                        <div class="tweet-header">
+                            <div class="tweet-author">
+                                <div class="author-avatar">
+                                    <img src="avatar4.png" alt="Andrea Bortolotti" class="avatar-img">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">
+                                        Andrea Bortolotti
+                                    </div>
+                                    <div class="author-handle">Ottica Miele</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tweet-content">
+                            <p>Gestire il magazzino è sempre un problema, tra resi complicati e clienti che chiedevano colori che non avevamo. 
+                            Con Magx possiamo acquistare e scambiare occhiali in modo rapido e senza rischi. 
+                        </div>
+                    </div>
+                    <div class="tweet-card">
+                        <div class="tweet-header">
+                            <div class="tweet-author">
+                                <div class="author-avatar">
+                                    <img src="avatar3.png" alt="Sara Torsani" class="avatar-img">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">
+                                        Sara Torsani
+                                    </div>
+                                    <div class="author-handle">Visione Ottica</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tweet-content">
+                            <p>Abbiamo tanti occhiali invenduti che restavano fermi in magazzino, con Magx, 
+                            possiamo venderli rapidamente ad altri ottici ed in più quando ci serve un modello specifico per un cliente,
+                             lo troviamo subito senza dover fare ordini minimi alla casa madre. Un vero game changer! 
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2>Domande frequenti</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Chi può usare Magx?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Magx è pensato esclusivamente per ottici e negozi di ottica. Ogni account viene verificato prima dell'accesso alla piattaforma.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Come posso inserire i miei occhiali nel sistema?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Puoi caricare facilmente i tuoi prodotti scannerizzando l'occhiale con il tuo lettore di cassa. 
+                            Il sistema li renderà visibili agli altri ottici della rete.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Come funziona il pagamento?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>I pagamenti digitali sono protetti: il denaro viene trasferito al venditore solo dopo che
+                            l'acquirente conferma la ricezione del prodotto.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Come funzionano le spedizioni?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Le spedizioni sono gestite tramite corrieri partner e i prodotti arrivano generalmente entro 24-48 ore. 
+                            I costi di spedizione sono trasparenti e variano in base al valore del prodotto.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Come viene garantita la conformità?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Il nostro team legale è sempre in contatto con le case madri, tutti gli ottici nella rete sono verificati
+                            e il nostro sistema verifica l'autenticità dei codici a barre e la qualità dei prodotti.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Limited Time Offer -->
+        <section class="limited-offer">
+            <div class="container">
+                <h2>Offerta limitata</h2>
+                <p>Unisciti a Magx come VIP Partner oggi e ottieni il 30% di sconto per i primi 3 mesi.</p>
+                <div class="countdown">
+                    <div class="time-unit">
+                        <span class="number">12</span>
+                        <span class="label">ore</span>
+                    </div>
+                    <div class="separator">:</div>
+                    <div class="time-unit">
+                        <span class="number">45</span>
+                        <span class="label">minuti</span>
+                    </div>
+                    <div class="separator">:</div>
+                    <div class="time-unit">
+                        <span class="number">30</span>
+                        <span class="label">secondi</span>
+                    </div>
+                </div>
+                <a href="https://docs.google.com/forms/d/1IlF40M767_LrRs7j3HeDGSl58CgH4xV7-MyyTv3xBlg/viewform?edit_requested=true" class="cta cta-large">Clicca qui per ottenere il tuo sconto →</a>
+            </div>
+        </section>
+
+        <!-- Footer CTA Section -->
+        <section class="footer-cta">
+            <div class="container">
+                <div class="footer-cta-content">
+                    <h2>Unisciti a Magx oggi!</h2>
+                    <p>Ottimizza il tuo inventario, aumenta i ricavi e offri di più ai tuoi clienti.</p>
+                    <div class="footer-cta-buttons">
+                        <a href="https://docs.google.com/forms/d/1IlF40M767_LrRs7j3HeDGSl58CgH4xV7-MyyTv3xBlg/viewform?edit_requested=true" class="btn btn-primary btn-large">Prova ora →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="magx_homepage.js"></script>
 </body>
 </html> 
