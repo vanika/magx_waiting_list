@@ -11,9 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize mobile menu toggle
     initMobileMenu();
-
-    // Initialize countdown timer
-    initCountdownTimer();
     
     // Initialize FAQ functionality
     initFAQ();
@@ -56,15 +53,13 @@ function initDropdowns() {
     
     dropdowns.forEach(dropdown => {
         dropdown.addEventListener('mouseenter', function() {
-            // In a real implementation, you would show the dropdown menu here
             const link = this.querySelector('a');
             if (link) {
-                link.style.color = '#000000'; // Use black text color on hover
+                link.style.color = '#000000';
             }
         });
         
         dropdown.addEventListener('mouseleave', function() {
-            // In a real implementation, you would hide the dropdown menu here
             const link = this.querySelector('a');
             if (link) {
                 link.style.color = '';
@@ -79,9 +74,9 @@ function initDropdowns() {
 function initScrollAnimations() {
     // Elements to animate on scroll
     const animatableElements = [
-        ...document.querySelectorAll('h1, .hero-subtitle, .pricing-info, .guarantee'),
+        ...document.querySelectorAll('h1, .hero-subtitle, .pricing-info'),
         ...document.querySelectorAll('.cta-buttons, .social-proof'),
-        ...document.querySelectorAll('.step-card, .demo-placeholder, .demo-cta'),
+        ...document.querySelectorAll('.step-card'),
         ...document.querySelectorAll('.logo-item')
     ];
     
@@ -90,7 +85,6 @@ function initScrollAnimations() {
         document.querySelector('h1'),
         document.querySelector('.hero-subtitle'),
         document.querySelector('.pricing-info'),
-        document.querySelector('.guarantee'),
         document.querySelector('.cta-buttons'),
         document.querySelector('.social-proof')
     ];
@@ -150,9 +144,6 @@ function initMobileMenu() {
     const mobileMenu = document.querySelector('.mobile-menu');
     
     if (mobileMenuToggle && mobileMenu) {
-        // Log to debug
-        console.log('Mobile menu toggle found:', mobileMenuToggle);
-        
         mobileMenuToggle.addEventListener('click', function(e) {
             e.preventDefault();
             document.body.classList.toggle('mobile-menu-open');
@@ -162,8 +153,6 @@ function initMobileMenu() {
             const expanded = this.getAttribute('aria-expanded') === 'true' || false;
             this.setAttribute('aria-expanded', !expanded);
         });
-    } else {
-        console.warn('Mobile menu elements not found');
     }
     
     // Check initial state
@@ -208,56 +197,6 @@ function initFAQ() {
             });
         }
     });
-} 
-
-/**
- * Initialize countdown timer for the limited offer section
- */
-function initCountdownTimer() {
-    // Get countdown elements
-    const hoursElement = document.querySelector('.countdown .time-unit:nth-child(1) .number');
-    const minutesElement = document.querySelector('.countdown .time-unit:nth-child(3) .number');
-    const secondsElement = document.querySelector('.countdown .time-unit:nth-child(5) .number');
-    
-    if (!hoursElement || !minutesElement || !secondsElement) {
-        console.warn('Countdown elements not found');
-        return;
-    }
-
-    // Set a future date (24 hours from now)
-    const endTime = new Date();
-    endTime.setHours(endTime.getHours() + 24);
-    
-    // Update the countdown elements
-    function updateCountdown() {
-        const now = new Date();
-        const diff = endTime - now;
-        
-        // If the countdown is over
-        if (diff <= 0) {
-            hoursElement.textContent = '00';
-            minutesElement.textContent = '00';
-            secondsElement.textContent = '00';
-            clearInterval(countdownInterval);
-            return;
-        }
-        
-        // Calculate hours, minutes, seconds
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        
-        // Update the display with leading zeros
-        hoursElement.textContent = hours.toString().padStart(2, '0');
-        minutesElement.textContent = minutes.toString().padStart(2, '0');
-        secondsElement.textContent = seconds.toString().padStart(2, '0');
-    }
-    
-    // Update the countdown every second
-    const countdownInterval = setInterval(updateCountdown, 1000);
-    
-    // Initial update
-    updateCountdown();
 }
 
 /**
@@ -303,18 +242,5 @@ function initTweetAvatars() {
             avatar.style.position = 'relative';
             avatar.appendChild(textNode);
         }
-    });
-    
-    // Add hover effects to tweet stats
-    const tweetStats = document.querySelectorAll('.tweet-stat');
-    tweetStats.forEach(stat => {
-        stat.addEventListener('mouseenter', function() {
-            this.style.color = '#1DA1F2';
-            this.style.cursor = 'pointer';
-        });
-        
-        stat.addEventListener('mouseleave', function() {
-            this.style.color = '';
-        });
     });
 }
