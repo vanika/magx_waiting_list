@@ -14,10 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize FAQ functionality
     initFAQ();
-    
-    // Initialize tweet avatars
-    initTweetAvatars();
-    
+        
     // Re-adjust on resize
     window.addEventListener('resize', function() {
         checkMobileMenu();
@@ -195,52 +192,6 @@ function initFAQ() {
                 // Toggle the clicked item
                 item.classList.toggle('active');
             });
-        }
-    });
-}
-
-/**
- * Set up tweet avatar images and hover effects
- */
-function initTweetAvatars() {
-    // Get all author avatars
-    const avatars = document.querySelectorAll('.author-avatar');
-    
-    // Array of placeholder avatar colors
-    const avatarColors = [
-        'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
-        'linear-gradient(45deg, #25D366, #128C7E)',
-        'linear-gradient(45deg, #4267B2, #00B2FF)',
-        'linear-gradient(45deg, #1DA1F2, #0C85D0)',
-        'linear-gradient(45deg, #333, #666)'
-    ];
-    
-    // Apply random background color to each avatar
-    avatars.forEach((avatar, index) => {
-        // Use modulo to cycle through colors if more avatars than colors
-        const colorIndex = index % avatarColors.length;
-        avatar.style.background = avatarColors[colorIndex];
-        
-        // Add first letter of author name as avatar content
-        const authorNameElement = avatar.closest('.tweet-author').querySelector('.author-name');
-        if (authorNameElement) {
-            const authorName = authorNameElement.textContent.trim().split(' ')[0];
-            const firstLetter = authorName.charAt(0);
-            
-            // Create and append text node
-            const textNode = document.createElement('span');
-            textNode.textContent = firstLetter;
-            textNode.style.color = 'white';
-            textNode.style.fontSize = '24px';
-            textNode.style.fontWeight = 'bold';
-            textNode.style.position = 'absolute';
-            textNode.style.top = '50%';
-            textNode.style.left = '50%';
-            textNode.style.transform = 'translate(-50%, -50%)';
-            
-            // Ensure avatar has position relative
-            avatar.style.position = 'relative';
-            avatar.appendChild(textNode);
         }
     });
 }
