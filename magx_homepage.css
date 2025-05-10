@@ -1,10 +1,10 @@
 /* Base Styles */
 :root {
-    --background: #e9e3e0;
+    --background: hsl(0, 0%, 100%);
     --text: #000000;
     --text-secondary: rgba(0, 0, 0, 0.7);
     --accent: #FFC700; /* Keep yellow accent */
-    --card-bg: #f0edea;
+    --card-bg: #ffffff;
     --border: rgba(0, 0, 0, 0.1);
     --button-bg: #423b3b;
     --black: #423b3b;
@@ -230,7 +230,7 @@ ul {
     flex: 0 0 auto;
     display: flex;
     justify-content: flex-end;
-    width: 600px;
+    width: 800px;
     position: relative;
     align-self: flex-start;
     margin-top: 30px;
@@ -294,7 +294,6 @@ h1 {
 .ad-examples {
     display: flex;
     width: 100%;
-    gap: 15px;
 }
 
 .ad-card {
@@ -307,21 +306,9 @@ h1 {
 }
 
 .main-ad-card {
-    width: 340px;
-    height: 500px;
-    flex-shrink: 0;
-}
-
-.small-ads {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    flex-shrink: 0;
-}
-
-.small-ad-card {
-    width: 240px;
-    height: 242px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .ad-card:hover {
@@ -399,7 +386,7 @@ h1 {
 }
 
 .step-thumbnail {
-    height: 160px;
+    height: 200px;
     background-color: #F0F0F0;
     overflow: hidden;
     display: flex;
@@ -899,11 +886,6 @@ h1 {
         width: 320px;
         height: 450px;
     }
-    
-    .small-ad-card {
-        width: 220px;
-        height: 217px;
-    }
 }
 
 @media (max-width: 1100px) {
@@ -964,21 +946,8 @@ h1 {
     }
     
     .main-ad-card {
-        width: 340px;
-        height: 450px;
-    }
-    
-    .small-ads {
-        flex-direction: row;
         width: 100%;
-        justify-content: center;
-        margin-top: 15px;
-        gap: 20px;
-    }
-    
-    .small-ad-card {
-        width: 240px;
-        height: 200px;
+        height: 450px;
     }
 }
 
@@ -1129,19 +1098,6 @@ h1 {
         margin-bottom: 15px;
     }
     
-    .small-ads {
-        width: 100%;
-        max-width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 15px;
-    }
-    
-    .small-ad-card {
-        width: calc(50% - 7.5px);
-        height: 200px;
-    }
-    
     .ad-body {
         height: 100%;
     }
@@ -1245,17 +1201,7 @@ h1 {
         margin: 0 -20px;
         border-radius: 0;
     }
-    
-    .small-ads {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .small-ad-card {
-        width: 100%;
-        height: 180px;
-    }
-    
+
     .main-ad-card {
         height: 250px;
     }
@@ -1705,19 +1651,20 @@ h1 {
 }
 
 .ad-body {
-    flex: 1;
-    background-color: #F0F0F0;
+    width: 100%;
+    height: auto;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
 .ad-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    height: auto;
+    object-fit: contain;
+    max-width: 100%;
+    display: block;
 }
 
 .ad-card:hover .ad-image {
