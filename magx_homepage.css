@@ -44,6 +44,18 @@ body {
     }
 }
 
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1320px;
+    }
+    .hero-images {
+        max-width: 800px;
+    }
+    .main-ad-card {
+        max-width: 800px;
+    }
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -1053,13 +1065,10 @@ h1 {
     
     /* Cards and Grids */
     .main-ad-card {
-        height: auto;
-        min-height: 250px;
+        min-height: 140px;
     }
-    
-    .ad-image {
-        height: auto;
-        max-height: 250px;
+    .ad-body {
+        padding: 2px;
     }
     
     /* Client Logos */
