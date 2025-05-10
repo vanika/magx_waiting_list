@@ -319,6 +319,7 @@ h1 {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: auto;
 }
 
 .main-ad-card {
@@ -326,7 +327,6 @@ h1 {
     max-width: 600px;
     margin: 0 auto;
     height: auto;
-    min-height: 300px;
 }
 
 .ad-card:hover {
@@ -1064,9 +1064,6 @@ h1 {
     }
     
     /* Cards and Grids */
-    .main-ad-card {
-        min-height: 140px;
-    }
     .ad-body {
         padding: 2px;
     }
@@ -1105,11 +1102,6 @@ h1 {
     
     .social-proof {
         display: none;
-    }
-    
-    .main-ad-card {
-        height: auto;
-        min-height: 200px;
     }
 }
 
@@ -1467,7 +1459,7 @@ h1 {
 .ad-content {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
 }
 
 .ad-header {
@@ -1564,7 +1556,6 @@ h1 {
     .main-ad-card {
         width: 100%;
         max-width: 100%;
-        min-height: 250px;
     }
     
     .ad-body {

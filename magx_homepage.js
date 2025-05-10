@@ -9,12 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize scroll animations
     initScrollAnimations();
     
-    // Initialize ad card hover effects
-    initAdCardHover();
-    
-    // Ensure hero fits viewport
-    adjustHeroHeight();
-    
     // Initialize mobile menu toggle
     initMobileMenu();
 
@@ -29,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Re-adjust on resize
     window.addEventListener('resize', function() {
-        adjustHeroHeight();
         checkMobileMenu();
     });
 });
@@ -89,7 +82,7 @@ function initScrollAnimations() {
         ...document.querySelectorAll('h1, .hero-subtitle, .pricing-info, .guarantee'),
         ...document.querySelectorAll('.cta-buttons, .social-proof'),
         ...document.querySelectorAll('.step-card, .demo-placeholder, .demo-cta'),
-        ...document.querySelectorAll('.logo-item, .ad-card')
+        ...document.querySelectorAll('.logo-item')
     ];
     
     // Add initial classes with sequential delays for hero elements
@@ -147,65 +140,6 @@ function initScrollAnimations() {
     
     // Trigger once on load to show elements already in view
     setTimeout(handleScrollAnimation, 100);
-}
-
-/**
- * Initialize hover effects for ad cards
- */
-function initAdCardHover() {
-    const adCards = document.querySelectorAll('.ad-card');
-    
-    adCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-            this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
-            this.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
-        });
-    });
-}
-
-/**
- * Additional styling for scrolled navbar - removing redundant code
- * since we're using navbar-scrolled class now
- */
-const style = document.createElement('style');
-style.textContent = `
-    .animate-on-scroll {
-        will-change: opacity, transform;
-    }
-`;
-document.head.appendChild(style);
-
-/**
- * Adjusts the hero section to fit the viewport perfectly
- */
-function adjustHeroHeight() {
-    const hero = document.querySelector('.hero');
-    const navbar = document.querySelector('.navbar');
-    const promoBanner = document.querySelector('.promo-banner');
-    
-    if (hero && navbar) {
-        const navbarHeight = navbar.offsetHeight;
-        const promoBannerHeight = promoBanner ? promoBanner.offsetHeight : 0;
-        const availableHeight = window.innerHeight;
-        
-        // Set the hero section height to fill the viewport minus the banner (if visible)
-        hero.style.height = `${availableHeight}px`;
-        hero.style.marginTop = `-${navbarHeight}px`;  
-        hero.style.paddingTop = `${navbarHeight + promoBannerHeight}px`;
-        
-        // Adjust ad card height
-        const adCard = document.querySelector('.ad-card');
-        if (adCard) {
-            const maxAdHeight = availableHeight - 150; // Leave some space
-            adCard.style.height = `${Math.min(580, maxAdHeight)}px`;
-        }
-    }
 }
 
 /**
